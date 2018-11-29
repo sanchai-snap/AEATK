@@ -434,7 +434,7 @@ public class ThreadSafeRunHistoryWrapper implements ThreadSafeRunHistory {
 	}
 	
 	
-	public void lockRead()
+	public synchronized void lockRead()
 	{
 	
 		if(runHistory instanceof ThreadSafeRunHistory)
@@ -446,7 +446,7 @@ public class ThreadSafeRunHistoryWrapper implements ThreadSafeRunHistory {
 	
 	}
 	
-	private void unlockRead()
+	private synchronized void unlockRead()
 	{
 		if(runHistory instanceof ThreadSafeRunHistory)
 		{
