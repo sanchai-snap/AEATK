@@ -16,5 +16,6 @@
 *.toc
 *.aux
 *.tex.bak
+**/.DS_Store
 
 /smac-output
