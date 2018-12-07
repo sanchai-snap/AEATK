@@ -434,37 +434,38 @@ public class ThreadSafeRunHistoryWrapper implements ThreadSafeRunHistory {
 	}
 	
 	
-	public synchronized void lockRead()
+	private void lockRead()
 	{
 	
-		if(runHistory instanceof ThreadSafeRunHistory)
+		if(!(runHistory instanceof ThreadSafeRunHistory))
 		{
-			((ThreadSafeRunHistory) runHistory).readLock();
+			this.rwltt.lockRead();
 		}
-		
-		this.rwltt.lockRead();
-	
 	}
 	
-	private synchronized void unlockRead()
+	private void unlockRead()
 	{
-		if(runHistory instanceof ThreadSafeRunHistory)
+		if(!(runHistory instanceof ThreadSafeRunHistory))
 		{
-			((ThreadSafeRunHistory) runHistory).releaseReadLock();
+			this.rwltt.unlockRead();
 		}
 		
-		this.rwltt.unlockRead();
 	}
 	
 	private void lockWrite()
 	{
-		this.rwltt.lockWrite();
+		if(!(runHistory instanceof ThreadSafeRunHistory))
+		{
+			this.rwltt.lockWrite();
+		}
 	}
 	
 	private void unlockWrite()
 	{
-		this.rwltt.unlockWrite();
-		
+		if(!(runHistory instanceof ThreadSafeRunHistory))
+		{
+			this.rwltt.unlockWrite();
+		}
 	}
 
 	@Override
