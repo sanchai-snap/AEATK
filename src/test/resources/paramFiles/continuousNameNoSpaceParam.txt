@@ -1,2 +1,0 @@
-#Check Parsing of names with no space
-name[0,1] [0.5]
