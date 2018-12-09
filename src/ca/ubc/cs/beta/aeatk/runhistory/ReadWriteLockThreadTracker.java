@@ -34,7 +34,8 @@ public class ReadWriteLockThreadTracker {
 		} catch(Throwable t)
 		{
 			t.printStackTrace();
-			System.exit(255);
+			throw new RuntimeException(t);
+//			System.exit(255);
 		}
 		
 		if(LOCK_DEBUG) readers.get(Thread.currentThread()).incrementAndGet();
@@ -51,7 +52,8 @@ public class ReadWriteLockThreadTracker {
 		}  catch(Throwable t)
 		{
 			t.printStackTrace();
-			System.exit(255);
+			throw new RuntimeException(t);
+//			System.exit(255);
 		}
 		
 		if(LOCK_DEBUG) readers.get(Thread.currentThread()).decrementAndGet();
@@ -70,7 +72,8 @@ public class ReadWriteLockThreadTracker {
 		}  catch(Throwable t)
 		{
 			t.printStackTrace();
-			System.exit(255);
+			throw new RuntimeException(t);
+//			System.exit(255);
 		}
 		
 		if(LOCK_DEBUG) writers.get(Thread.currentThread()).incrementAndGet();
@@ -87,7 +90,8 @@ public class ReadWriteLockThreadTracker {
 		} catch(Throwable t)
 		{
 				t.printStackTrace();
-				System.exit(255);
+				throw new RuntimeException(t);
+//				System.exit(255);
 		}
 		
 		if(LOCK_DEBUG) writers.get(Thread.currentThread()).decrementAndGet();

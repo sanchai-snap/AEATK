@@ -49,7 +49,7 @@ public class ExitOnFailureTargetAlgorithmEvaluatorDecorator extends AbstractTarg
             {
                 Thread.currentThread().setName( this.getClass().getSimpleName() + ":System.Exit Thread ");
                 log.warn("Exiting process.");
-                System.exit(1);
+//                System.exit(1);
             }
         };
         

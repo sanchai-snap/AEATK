@@ -52,13 +52,13 @@ public class BashCompletion {
 			fw.flush();
 			fw.close();
 			System.out.println("Bash completion script for " + opts.commandName + " written to: " + (new File(opts.outputFile)).getAbsolutePath() + "");
-			System.exit(0);
+//			System.exit(0);
 		} catch(Throwable t)
 		{
 			System.err.println("Couldn't generate bash completion script");
 			t.printStackTrace();
 			
-			System.exit(1);
+//			System.exit(1);
 		}
 		
 	}

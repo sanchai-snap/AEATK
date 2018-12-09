@@ -175,7 +175,8 @@ public class LiveThreadWatchDog<K extends AutomaticConfiguratorEvent> implements
 									return;
 								} else
 								{
-									System.exit(AEATKReturnValues.DEADLOCK_DETECTED);
+//									System.exit(AEATKReturnValues.DEADLOCK_DETECTED);
+									throw new RuntimeException("AEATK Deadlock detected");
 								}
 								
 								

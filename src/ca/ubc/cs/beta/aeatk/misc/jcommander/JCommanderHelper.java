@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 
+import javax.management.RuntimeErrorException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -100,7 +102,8 @@ public final class JCommanderHelper
 				if(possibleValues.contains(helpName))
 				{
 					OptionsToUsage.usage(UsageSectionGenerator.getUsageSections(options, taeOpts), true, levelToDisplay);
-					System.exit(AEATKReturnValues.SUCCESS);
+					throw new RuntimeException("AEATK Return value success");
+//					System.exit(AEATKReturnValues.SUCCESS);
 				}
 			}
 			
@@ -120,7 +123,8 @@ public final class JCommanderHelper
 					}
 					
 					OptionsToUsage.usage(UsageSectionGenerator.getUsageSections(options, taeOpts), false, levelToDisplay);
-					System.exit(AEATKReturnValues.SUCCESS);
+//					System.exit(AEATKReturnValues.SUCCESS);
+					return;
 				}
 			}
 			
@@ -136,7 +140,8 @@ public final class JCommanderHelper
 					System.out.println(VersionTracker.getVersionInformation());
 					
 					
-					System.exit(AEATKReturnValues.SUCCESS);
+//					System.exit(AEATKReturnValues.SUCCESS);
+					return;
 				}
 			}
 			
@@ -191,7 +196,8 @@ public final class JCommanderHelper
 			
 			if(quit)
 			{
-				System.exit(AEATKReturnValues.PARAMETER_EXCEPTION);
+//				System.exit(AEATKReturnValues.PARAMETER_EXCEPTION);
+				throw new RuntimeException("JCommander parameter exception");
 			}
 		}
 		checkForHelpAndVersion(args, mainOptions, taeOptions);

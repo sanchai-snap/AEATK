@@ -198,7 +198,8 @@ public class RunGroupOptions extends AbstractOptions {
 			{
 				System.out.println(e.getMessage());
 				System.out.println("Final substitution: " + line);
-				System.exit(AEATKReturnValues.PARAMETER_EXCEPTION);
+//				System.exit(AEATKReturnValues.PARAMETER_EXCEPTION);
+				throw new RuntimeException("AEATK Parameter exception");
 			} else
 			{
 				throw e;
@@ -208,7 +209,8 @@ public class RunGroupOptions extends AbstractOptions {
 		if(runGroupExit)
 		{
 			System.out.println("Final substitution: " + line);
-			System.exit(AEATKReturnValues.SUCCESS);
+//			System.exit(AEATKReturnValues.SUCCESS);
+			throw new RuntimeException("AEATK Run group exit");
 		}
 		
 	
