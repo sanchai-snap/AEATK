@@ -44,7 +44,6 @@ import ca.ubc.cs.beta.aeatk.algorithmrunresult.RunningAlgorithmRunResult;
 import ca.ubc.cs.beta.aeatk.algorithmrunresult.kill.KillHandler;
 import ca.ubc.cs.beta.aeatk.concurrent.threadfactory.SequentiallyNamedThreadFactory;
 import ca.ubc.cs.beta.aeatk.misc.associatedvalue.Pair;
-import ca.ubc.cs.beta.aeatk.misc.logback.MarkerFilter;
 import ca.ubc.cs.beta.aeatk.misc.logging.LoggingMarker;
 import ca.ubc.cs.beta.aeatk.misc.string.SplitQuotedString;
 import ca.ubc.cs.beta.aeatk.misc.watch.StopWatch;
@@ -1000,10 +999,10 @@ outerloop:
 				double runtimeD = Double.valueOf(runtime);
 				double qualityD = Double.valueOf(bestSolution);
 				long resultSeedD = Long.valueOf(seed);
-				if(!MarkerFilter.log(fullProcessOutputMarker.getName()))
-				{
-					log.info("Algorithm Reported: {}" , line);
-				}
+//				if(!MarkerFilter.log(fullProcessOutputMarker.getName()))
+//				{
+//					log.info("Algorithm Reported: {}" , line);
+//				}
 				
 				completedAlgorithmRun = new ExistingAlgorithmRunResult(runConfig, acResult, runtimeD, runLengthD, qualityD, resultSeedD,  additionalRunData, this.getCurrentWallClockTime() / 1000.0);
 				return true;
